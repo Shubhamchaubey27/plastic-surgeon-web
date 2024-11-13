@@ -1,8 +1,18 @@
-function toggleAnswer(index) {
-    const answers = document.querySelectorAll('.faq-answer');
-    const answer = answers[index];
-    answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
-}
+ // Select all FAQ questions
+ const questions = document.querySelectorAll('.faq-question');
+
+ // Add event listener to each question
+ questions.forEach(question => {
+     question.addEventListener('click', () => {
+         // Toggle active class on clicked question
+         question.classList.toggle('active');
+
+         // Toggle visibility of the answer
+         const answer = question.nextElementSibling;
+         answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+     });
+ });
+
 
 // Wait for the page to load
 window.addEventListener("load", function() {
